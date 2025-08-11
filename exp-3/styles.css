@@ -1,0 +1,70 @@
+:root {
+  --bg-color-header: limegreen;
+  --bg-color-footer: limegreen;
+  --bg-color-nav: #e5e5e5;
+  --bg-color-main: white;
+  --color-main: black;
+  --link-color: purple;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  color: white;
+  background-color: var(--bg-color-header);
+  grid-column: 1 / span 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: var(--bg-color-nav);
+}
+
+nav a {
+  color: var(--link-color);
+  text-decoration: underline;
+  margin-bottom: 8px;
+}
+
+main {
+  background-color: var(--bg-color-main);
+  color: var(--color-main);
+  padding: 20px;
+}
+
+footer {
+  color: white;
+  background-color: var(--bg-color-footer);
+  grid-column: 1 / span 2;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 80px auto 60px;
+  height: 100vh;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:checked ~ .dashboard {
+  --bg-color-header: #333;
+  --bg-color-footer: #111;
+  --bg-color-nav: #222;
+  --bg-color-main: #000;
+  --color-main: white;
+  --link-color: #8ab4f8;
+}
