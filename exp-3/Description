@@ -1,0 +1,33 @@
+Define color variables:
+Set CSS custom properties (variables) for all main colors used in the dashboard — header, footer, navigation, main content, text, and links — to enable easy theming.
+
+Create the HTML structure:
+
+Add a hidden checkbox input (#toggle) that will act as the dark mode switch.
+
+Build the dashboard container with semantic elements:
+
+<header> for the top bar, containing a title and the dark mode toggle label linked to the checkbox.
+
+<nav> for the sidebar navigation links.
+
+<main> for the primary content area.
+
+<footer> for the bottom footer bar.
+
+Style the dashboard layout:
+Use CSS Grid to arrange the page into two columns (navigation and main content) and three rows (header, main, footer).
+Ensure the header and footer span across both columns.
+
+Apply default (light) theme colors:
+Use the CSS variables defined earlier to style backgrounds, text colors, and links for the light mode.
+
+Implement dark mode toggle behavior:
+Use the CSS selector #toggle:checked ~ .dashboard to detect when the checkbox is checked.
+When checked, override the CSS variables with dark mode colors.
+
+Ensure dynamic theme switching:
+Since the dashboard’s colors rely on CSS variables, changing those variables on toggle immediately updates the entire UI without page reload.
+
+Test the toggle:
+Confirm that clicking the “Dark Mode” label toggles the checkbox and the dashboard switches seamlessly between light and dark themes.
