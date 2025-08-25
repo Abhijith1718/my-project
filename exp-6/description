@@ -1,11 +1,79 @@
-The Interactive SVG Drawing Tool is like your mini sketchpad right inside the browser. 
-No need for fancy apps or heavy libraries — just pure JavaScript magic with some SVG power. 
-It listens to your mouse (mousedown, mousemove, mouseup) and turns your movements into smooth, flowing strokes.
+Structure of the HTML:
 
-Click, drag, and boom — a shiny <path> starts following your cursor like a loyal puppy. 
-Unlike boring straight-line tools that feel stiff, this one gives you nice wavy, natural-looking doodles.
-And guess what? If your mouse goes on a little adventure outside the box, no worries! 
-The moment it comes back in, your drawing keeps going like nothing ever happened. 
+<h2> heading for the tool title (“SVG Drawing Tool”).
 
-It’s simple, lightweight, and surprisingly powerful — a neat example of how DOM tricks, SVG magic, and event handling can team up to make something super fun. 
-Basically, you get a tiny paint app in the browser where you can sketch, scribble, and play — no reloads, no frameworks, just pure JS vibes.
+A .container div that wraps around the <svg> canvas.
+
+A second <h2> footer-style text with attribution (“By Abhijith”).
+
+<script src="script.js"></script> links the drawing logic.
+
+Initialize variables and setup:
+
+const svg = document.getElementById("drawingArea"); gets the SVG element.
+
+Two state variables control drawing:
+
+drawing → Boolean to track whether the mouse is pressed down.
+
+currentPath → Stores the active <path> element being drawn.
+
+Mouse position calculation:
+
+getMousePosition(evt) calculates exact mouse coordinates inside the SVG:
+
+Uses getBoundingClientRect() to offset page coordinates.
+
+Returns {x, y} relative to the SVG canvas.
+
+Start drawing (mousedown):
+
+When the mouse is pressed inside the SVG:
+
+drawing is set to true.
+
+A new <path> element is created with:
+
+Stroke color = "blue".
+
+Stroke width = 2.
+
+Fill = "none".
+
+Path starts at the mouse coordinates using M x y (move command).
+
+The path is added (appendChild) to the SVG.
+
+Continue drawing (mousemove):
+
+While drawing is true and a path exists:
+
+The script checks if the mouse is still inside the SVG bounds.
+
+If yes, it appends a new line segment using L x y (line command).
+
+The path grows dynamically, creating a freehand effect.
+
+End drawing (mouseup):
+
+When the mouse is released:
+
+drawing is set to false.
+
+currentPath is reset to null, ending the stroke.
+
+CSS Styling:
+
+General body: Arial font, centered text, margin for spacing.
+
+.container: Black border, padding around the canvas.
+
+SVG canvas:
+
+Size: 900px × 650px.
+
+Border: Dark gray (#555).
+
+Background: Light gray (#f8f8f8).
+
+Cursor changes to crosshair for drawing precision.
