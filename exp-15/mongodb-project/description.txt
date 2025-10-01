@@ -1,0 +1,19 @@
+This project is an E-commerce product management API built with Node.js, Express, and MongoDB.
+
+The Product model defines the schema with fields like name, price, description, category, stock, and createdAt.
+
+The Express routes allow clients to:
+
+Add a new product (POST /products/add)
+
+Get all products (GET /products)
+
+Get a product by ID (GET /products/:id)
+
+Update a product by ID (PUT /products/:id)
+
+Delete a product by ID (DELETE /products/:id)
+
+MongoDB is connected locally at mongodb://localhost:27017/ecommerce.
+
+The server runs on port 3010 and handles JSON requests.
